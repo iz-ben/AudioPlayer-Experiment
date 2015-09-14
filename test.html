@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Audio Player</title>
+<style>
+#visualizer
+{
+	width:100%;
+	height:200px;
+	margin:20% 100px;	
+}
+</style>
+</head>
+
+<body>
+<div class="visualizer" id="visualizer"></div>
+<script src="js/audio.player.min.js"></script>
+<script>
+var activeSound;
+
+(function()
+{
+	audioPlayer.createSound( 'https://api.soundcloud.com/tracks/109084469/stream?secret_token=s-lTShm&client_id=62d04bb9b214abbc31cae1334a28e8ed' );
+	
+	activeSound = audioPlayer.getSound();
+	
+	console.log( activeSound );
+})();
+</script>
+
+</body>
+</html>

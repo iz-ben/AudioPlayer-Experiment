@@ -1,0 +1,26 @@
+{
+  "name": "AudioManager",
+  "version": "0.0.1",
+  "authors": [
+    "Ben <ben@coterie.co.ke>"
+  ],
+  "description": "Audio interface",
+  "keywords": [
+    "Audio",
+    "interface"
+  ],
+  "license": "MIT",
+  "homepage": "http://coterie.co.ke/audiomanager",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "fontawesome": "~4.3.0",
+    "bootstrap-material-design": "~0.3.0"
+  }
+}
