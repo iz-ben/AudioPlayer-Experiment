@@ -10,6 +10,9 @@
   "license": "ISC",
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-closure-tools": "^0.9.9"
+    "grunt-closure-tools": "^0.9.9",
+    "jit-grunt": "^0.9.1",
+    "load-grunt-config": "^0.17.2",
+    "time-grunt": "^1.2.1"
   }
 }
