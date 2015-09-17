@@ -18,7 +18,8 @@ goog.require('goog.events.EventType');
 */
 co.ke.coterie.audio.Manager = function()
 {
-	goog.events.EventTarget.call(this);
+	goog.events.EventTarget.call(this);	
+	
 }
 goog.inherits( co.ke.coterie.audio.Manager, goog.events.EventType );
 
@@ -58,6 +59,17 @@ co.ke.coterie.audio.Manager.prototype.playing_ = false;
 co.ke.coterie.audio.Manager.prototype.volume_ = 50;
 
 /**
+ * @type {Array.<co.ke.coterie.audio.Sound>}
+ * @private
+ */
+co.ke.coterie.audio.Manager.prototype.sounds_;
+
+/**
+ * @type {co.ke.coterie.audio.Sound}
+ */
+co.ke.coterie.audio.Manager.prototype.activeSound;
+
+/**
  * @return {number}
  */
 co.ke.coterie.audio.Manager.prototype.getVolume = function()
@@ -91,4 +103,65 @@ co.ke.coterie.audio.Manager.prototype.setVolume = function( volume )
 	this.volume_ = volume >= 0 && volume <=100 ? volume : this.volume_ ;
 	
 	this.dispatchEvent( co.ke.coterie.audio.Manager.EventType.VOLUMECHANGE );
+}
+
+/**
+ * @param {co.ke.coterie.audio.Sound} sound
+ */
+co.ke.coterie.audio.Manager.prototype.addSound = function( sound )
+{
+	this.sounds_ = this.sounds_ || [];
+	
+	this.sounds_.push( sound );
+}
+
+/**
+ * @param {string} soundUrl
+  * @param {string} title
+ * @expose
+ */
+co.ke.coterie.audio.Manager.prototype.createSound = function( soundUrl, title )
+{
+	var sound = new co.ke.coterie.audio.Sound( this, soundUrl, title );
+}
+
+/**
+ * @expose
+ * @param {number} soundId
+ */
+co.ke.coterie.audio.Manager.prototype.playSound = function(soundId)
+{
+	
+}
+
+/**
+ * @expose
+ */
+co.ke.coterie.audio.Manager.prototype.play = function()
+{
+	
+}
+
+/**
+ * @expose
+ */
+co.ke.coterie.audio.Manager.prototype.pause = function()
+{
+	
+}
+
+/**
+ * @expose
+ */
+co.ke.coterie.audio.Manager.prototype.togglePlay = function()
+{
+	
+}
+
+/**
+ * @expose
+ */
+co.ke.coterie.audio.Manager.prototype.resume = function()
+{
+	
 }
