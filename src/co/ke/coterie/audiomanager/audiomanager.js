@@ -8,9 +8,10 @@
  
 goog.provide('co.ke.coterie.audio.Manager');
 
-
 goog.require('goog.events.Event');
 goog.require('goog.events.EventType');
+
+goog.require('co.ke.coterie.audio.Sound');
 
 /**
  * @constructor
