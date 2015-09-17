@@ -88,7 +88,7 @@ co.ke.coterie.audio.Manager.prototype.isPlaying = function()
  */
 co.ke.coterie.audio.Manager.prototype.setVolume = function( volume )
 {
-	this.volume_ = volume >= 0 || volume <=100 ? volume : this.volume_ ;
+	this.volume_ = volume >= 0 && volume <=100 ? volume : this.volume_ ;
 	
 	this.dispatchEvent( co.ke.coterie.audio.Manager.EventType.VOLUMECHANGE );
 }
