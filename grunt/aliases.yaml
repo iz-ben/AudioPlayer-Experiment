@@ -1,0 +1,8 @@
+default:
+  description: 'Compile javascript files'
+  tasks:
+    - 'closureBuilder'
+createjs:
+  description: 'Compile javascript files'
+  tasks:
+    - 'closureBuilder'
