@@ -30,6 +30,8 @@ co.ke.coterie.audio.Sound = function( audioManager, source_url, title )
 	
 	this.streamUrl = new goog.Uri( source_url );
 	
+	goog.events.listen( this.audioManager,  co.ke.coterie.audio.Manager.EventType.VOLUMECHANGE, this.setVolume, true, this );
+	
 	this.setup();
 }
 
@@ -92,6 +94,11 @@ co.ke.coterie.audio.Sound.prototype.animationFrame = 0;
 co.ke.coterie.audio.Sound.prototype.setVolume = function()
 {
 	this.volume_ = this.audioManager.getVolume();
+	
+	if( this.getGain() )
+	{
+		this.getGain().value  = this.getVolume()/100;
+	}
 }
 
 /**
