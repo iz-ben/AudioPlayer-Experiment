@@ -56,7 +56,7 @@ module.exports = {
 		src: ['src','E:/tools/google/closure/library/closure/goog','E:/tools/google/closure/library/lib', 'E:/tools/google/closure/library/third_party'],
 		
 		// [OPTIONAL] if not set, will output to stdout 
-		dest: 'js/audiomanager.min.js'
+		dest: 'dist/js/audiomanager.min.js'
 	},
 	createAudioPlayer:{
 		options: {
@@ -67,6 +67,6 @@ module.exports = {
 		src: ['src','E:/tools/google/closure/library/closure/goog','E:/tools/google/closure/library/lib', 'E:/tools/google/closure/library/third_party'],
 		
 		// [OPTIONAL] if not set, will output to stdout 
-		dest: 'js/audioplayer.min.js'
+		dest: 'dist/js/audioplayer.min.js'
 	}
 };

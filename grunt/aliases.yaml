@@ -2,7 +2,11 @@ default:
   description: 'Compile javascript files'
   tasks:
     - 'closureBuilder'
-createjs:
+createmanager:
   description: 'Compile javascript files'
   tasks:
-    - 'closureBuilder'
+    - 'closureBuilder:createAudioManager'
+createplayer:
+  description: 'Compile javascript files'
+  tasks:
+    - 'closureBuilder:createAudioPlayer'
