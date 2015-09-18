@@ -10,6 +10,9 @@
 goog.provide('co.ke.coterie.audio.Sound');
 
 
+goog.require('goog.events.EventTarget');
+goog.require('goog.Uri');
+
 /**
  * @constructor
  * @extends {goog.events.EventTarget}
@@ -22,6 +25,8 @@ goog.provide('co.ke.coterie.audio.Sound');
 */
 co.ke.coterie.audio.Sound = function( audioManager, source_url, title )
 {
+	goog.events.EventTarget.call(this);	
+	
 	this.audioManager = audioManager;
 	
 	this.setVolume();
@@ -35,6 +40,8 @@ co.ke.coterie.audio.Sound = function( audioManager, source_url, title )
 	this.setup();
 }
 
+goog.inherits( co.ke.coterie.audio.Sound, goog.events.EventTarget );
+
 /**
  * @type {co.ke.coterie.audio.Manager} Stores a reference to the audio manager instance
  * that created the sound
@@ -43,7 +50,7 @@ co.ke.coterie.audio.Sound.prototype.audioManager;
 
 /**
  * By default this will take the value provided by its audioManager
- * @return {number}
+ * @type {number}
  */
 co.ke.coterie.audio.Sound.prototype.volume_ = 0;
 
@@ -89,7 +96,7 @@ co.ke.coterie.audio.Sound.prototype.mediaElementSource_;
 co.ke.coterie.audio.Sound.prototype.animationFrame = 0;
 
 /**
- * @param {number} volume
+ * 
  */
 co.ke.coterie.audio.Sound.prototype.setVolume = function()
 {

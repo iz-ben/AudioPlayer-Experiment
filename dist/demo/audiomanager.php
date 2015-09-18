@@ -6,5 +6,11 @@
 </head>
 
 <body>
+
+<script src="../js/audiomanager.min.js"></script>
+<script>
+
+</script>
+
 </body>
 </html>

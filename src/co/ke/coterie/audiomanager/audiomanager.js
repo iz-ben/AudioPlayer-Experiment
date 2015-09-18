@@ -10,6 +10,7 @@ goog.provide('co.ke.coterie.audio.Manager');
 
 goog.require('goog.events.Event');
 goog.require('goog.events.EventType');
+goog.require('goog.events.EventTarget');
 
 goog.require('co.ke.coterie.audio.Sound');
 
@@ -22,7 +23,7 @@ co.ke.coterie.audio.Manager = function()
 	goog.events.EventTarget.call(this);	
 	
 }
-goog.inherits( co.ke.coterie.audio.Manager, goog.events.EventType );
+goog.inherits( co.ke.coterie.audio.Manager, goog.events.EventTarget );
 
 /**
  * @enum {string}
@@ -32,6 +33,7 @@ co.ke.coterie.audio.Manager.EventType = {
 	PAUSE: goog.events.getUniqueId('pause'),
 	PLAY: goog.events.getUniqueId('play'),
 	PLAYLISTCHANGE:goog.events.getUniqueId('playlistchange'),
+	SOUNDCHANGE:goog.events.getUniqueId('soundchange'),
 	READY: goog.events.getUniqueId('ready'),
 	RESUME: goog.events.getUniqueId('resume'),
 	STOP: goog.events.getUniqueId('stop'),
@@ -108,12 +110,26 @@ co.ke.coterie.audio.Manager.prototype.setVolume = function( volume )
 
 /**
  * @param {co.ke.coterie.audio.Sound} sound
+ * @private
  */
 co.ke.coterie.audio.Manager.prototype.addSound = function( sound )
 {
 	this.sounds_ = this.sounds_ || [];
 	
 	this.sounds_.push( sound );
+	
+	this.activeSound = this.activeSound || sound;
+	
+	this.dispatchEvent( co.ke.coterie.audio.Manager.EventType.PLAYLISTCHANGE );
+}
+
+/**
+ * @return {Array.<co.ke.coterie.audio.Sound>}
+ * @private
+ */
+co.ke.coterie.audio.Manager.prototype.getSounds = function()
+{
+	return this.sounds_;
 }
 
 /**
@@ -124,6 +140,8 @@ co.ke.coterie.audio.Manager.prototype.addSound = function( sound )
 co.ke.coterie.audio.Manager.prototype.createSound = function( soundUrl, title )
 {
 	var sound = new co.ke.coterie.audio.Sound( this, soundUrl, title );
+	
+	this.addSound(sound);
 }
 
 /**
@@ -132,7 +150,18 @@ co.ke.coterie.audio.Manager.prototype.createSound = function( soundUrl, title )
  */
 co.ke.coterie.audio.Manager.prototype.playSound = function(soundId)
 {
+	var sounds = this.getSounds(),
 	
+	sound = soundId < sounds.length ? sounds[soundId] : null;
+	
+	if(sound && sound!==this.activeSound)
+	{
+		this.activeSound = sound;
+		
+		this.dispatchEvent( co.ke.coterie.audio.Manager.EventType.SOUNDCHANGE );
+		
+		this.play();
+	}
 }
 
 /**
@@ -140,7 +169,7 @@ co.ke.coterie.audio.Manager.prototype.playSound = function(soundId)
  */
 co.ke.coterie.audio.Manager.prototype.play = function()
 {
-	
+	this.activeSound.play();
 }
 
 /**
