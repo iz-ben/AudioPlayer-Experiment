@@ -18,7 +18,7 @@ goog.provide('co.ke.coterie.audio.Sound');
  * @param {string} title The title of the current sound
  
  * This class will basically create and 
- * manage an instance of web audio and use it to play html5 audio
+ * manage an audio instance using web audio
 */
 co.ke.coterie.audio.Sound = function( audioManager, source_url, title )
 {
@@ -97,7 +97,7 @@ co.ke.coterie.audio.Sound.prototype.setVolume = function()
 	
 	if( this.getGain() )
 	{
-		this.getGain().value  = this.getVolume()/100;
+		this.getGain()['value']  = this.getVolume()/100;
 	}
 }
 
@@ -175,26 +175,26 @@ co.ke.coterie.audio.Sound.prototype.setup = function()
 {
 	//setup Audio instance	
 	
-	this.getAudio().controls = false;
+	this.getAudio()['controls'] = false;
 	
-	this.getAudio().autoplay = false;
+	this.getAudio()['autoplay'] = false;
 	
 	//setup Contexts
 	
-	this.mediaElementSource_ = this.getContext().createMediaElementSource( this.getAudio() );
-	this.gain_ = this.getContext().createGain();
-	this.analyser_ = this.getContext().createAnalyser();
+	this.mediaElementSource_ = this.getContext()['createMediaElementSource']( this.getAudio() );
+	this.gain_ = this.getContext()['createGain']();
+	this.analyser_ = this.getContext()['createAnalyser']();
 	
 	// setup audio filter paths
-	this.getElementSource().connect( this.getGain() );
+	this.getElementSource()['connect']( this.getGain() );
 	
-	this.getGain().connect( this.getAnalyser() );
+	this.getGain()['connect']( this.getAnalyser() );
 	
-	this.getAnalyser().connect( this.getContext().destination );
+	this.getAnalyser()['connect']( this.getContext()['destination'] );
 	
-	this.getAudio().crossOrigin = 'anonymous';
+	this.getAudio()['crossOrigin'] = 'anonymous';
 	
-	this.getAudio().src = this.streamUrl.toString();
+	this.getAudio()['src'] = this.streamUrl.toString();
 }
 
 co.ke.coterie.audio.Sound.prototype.draw = function()
@@ -206,5 +206,5 @@ co.ke.coterie.audio.Sound.prototype.play = function()
 {
 	this.animationFrame = window.requestAnimationFrame( goog.bind( this.draw, this ) );
 	
-	this.getAudio().play();
+	this.getAudio()['play']();
 }

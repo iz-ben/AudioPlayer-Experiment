@@ -118,7 +118,7 @@ co.ke.coterie.audio.Manager.prototype.addSound = function( sound )
 
 /**
  * @param {string} soundUrl
-  * @param {string} title
+ * @param {string} title
  * @expose
  */
 co.ke.coterie.audio.Manager.prototype.createSound = function( soundUrl, title )
