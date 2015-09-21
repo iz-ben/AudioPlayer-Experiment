@@ -204,6 +204,9 @@ co.ke.coterie.audio.Sound.prototype.setup = function()
 	this.getAudio()['src'] = this.streamUrl.toString();
 }
 
+/**
+ * Place functions that you want to fired with the animationFrame here
+ */
 co.ke.coterie.audio.Sound.prototype.draw = function()
 {
 	this.animationFrame = window.requestAnimationFrame( goog.bind( this.draw, this ) );

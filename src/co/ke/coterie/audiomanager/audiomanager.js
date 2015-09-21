@@ -21,7 +21,6 @@ goog.require('co.ke.coterie.audio.Sound');
 co.ke.coterie.audio.Manager = function()
 {
 	goog.events.EventTarget.call(this);	
-	
 }
 goog.inherits( co.ke.coterie.audio.Manager, goog.events.EventTarget );
 
