@@ -29,7 +29,7 @@ module.exports = {
 			 * value can be a string or an array
 			 * If no value is required use null
 			 */
-			//compilation_level: 'ADVANCED_OPTIMIZATIONS',
+			compilation_level: 'ADVANCED_OPTIMIZATIONS',
 			externs: ['E:/tools/google/closure/library/externs/*.js'],
 			define: ["'goog.DEBUG=false'"],
 			warning_level: 'verbose',
