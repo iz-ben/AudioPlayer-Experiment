@@ -4,6 +4,8 @@
  * @link      http://coterie.co.ke
  * Based on scottschiller's SoundManager2
  * https://github.com/scottschiller/SoundManager2
+ * Refrences:
+ * https://developer.mozilla.org/en-US/Apps/Build/Audio_and_video_delivery/buffering_seeking_time_ranges
  */
  
 goog.provide('co.ke.coterie.audio.Manager');
