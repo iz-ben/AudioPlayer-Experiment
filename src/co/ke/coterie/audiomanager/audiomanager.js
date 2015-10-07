@@ -6,6 +6,10 @@
  * https://github.com/scottschiller/SoundManager2
  * Refrences:
  * https://developer.mozilla.org/en-US/Apps/Build/Audio_and_video_delivery/buffering_seeking_time_ranges
+ * https://developer.mozilla.org/en-US/Apps/Build/Audio_and_video_delivery
+ * http://html5doctor.com/html5-audio-the-state-of-play/
+ * http://www.w3schools.com/tags/ref_av_dom.asp
+ * https://www.w3.org/wiki/HTML/Elements/audio
  */
  
 goog.provide('co.ke.coterie.audio.Manager');
